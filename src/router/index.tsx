@@ -1,4 +1,5 @@
 // import Layout from "../pages/Layout";
+import { Layout } from "antd";
 import Login from "../pages/Login";
 import { createBrowserRouter } from "react-router-dom";
 
@@ -8,8 +9,8 @@ const router = createBrowserRouter([
         element: <Login />
     },
     {
-        path: "/login",
-        element: <Login></Login>
+        path: "/layout",
+        element: <Layout></Layout>
     },
 ]);
 
