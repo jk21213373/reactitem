@@ -2,15 +2,18 @@
 import { Layout } from "antd";
 import Login from "../pages/Login";
 import { createBrowserRouter } from "react-router-dom";
+import AuthRoute from '../components/AuthRoute'
+
 
 const router = createBrowserRouter([
     {
         path: "/",
-        element: <Login />
+        element: <AuthRoute><Layout /></AuthRoute>,
+
     },
     {
-        path: "/layout",
-        element: <Layout></Layout>
+        path: "/login",
+        element: <Login />
     },
 ]);
 
