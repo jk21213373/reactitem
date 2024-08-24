@@ -10,8 +10,9 @@ import {
     Select
 } from 'antd'
 import { PlusOutlined } from '@ant-design/icons'
+import { message } from 'antd'
 import { Link } from 'react-router-dom'
-import { useState, useEffect } from "react"
+import { useState, useEffect, } from "react"
 import './index.scss'
 import ReactQuill from 'react-quill'
 import 'react-quill/dist/quill.snow.css'
@@ -30,14 +31,16 @@ const Publish = () => {
         getChannelList()
     }, [])
     const onFinish = (formValue: any) => {
+        //校验封面类型imageType是否和实际的图片列表imageList数量是相等的
+        if (imageList.length !== imageType) return message.warning('封面类型和图片数量不匹配')
         const { title, content, channel_id } = formValue
         //1.按照接口文档的格式处理收集到的表单数据
         const reqData = {
             title,
             content,
             cover: {
-                type: 0,
-                images: []
+                type: imageType,//更改封面
+                images: imageList.map((item: any) => item.response.data.url)//图片列表
             },
             channel_id
         }
