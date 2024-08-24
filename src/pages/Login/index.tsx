@@ -10,7 +10,7 @@ const Login = () => {
     const navigate = useNavigate()
     async function onFinish(formValue: any) {
         await dispatch(fetchLogin(formValue) as any)//更改之后
-        navigate('/layout')
+        navigate('/')
         message.success('登录成功')
     }
     return (

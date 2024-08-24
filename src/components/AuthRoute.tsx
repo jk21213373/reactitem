@@ -1,4 +1,4 @@
-import { getToken } from '../../utils/token'
+import { getToken } from '../utils/token'
 import { Navigate } from 'react-router-dom'
 
 //路由鉴权实现

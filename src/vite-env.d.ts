@@ -4,3 +4,5 @@ declare module "*.react" {
     const component: DefineComponent<{}, {}, any>
     export default component
 }
+
+// declare module "@ant-design/icons"
