@@ -5,6 +5,8 @@ import { Navigate } from 'react-router-dom'
 // @ts-ignore
 const AuthRoute = ({ children }) => {
     const isToken = getToken()
+    console.log(isToken)
+    console.log("111111")
     if (isToken) {
         return <>{children}</>
     } else {
