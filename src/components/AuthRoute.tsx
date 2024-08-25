@@ -2,7 +2,7 @@ import { getToken } from '../utils/token'
 import { Navigate } from 'react-router-dom'
 
 //路由鉴权实现
-// @ts-ignore
+//@ts-ignore
 const AuthRoute = ({ children }) => {
     const isToken = getToken()
     if (isToken) {

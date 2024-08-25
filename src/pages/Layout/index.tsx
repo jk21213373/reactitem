@@ -42,7 +42,7 @@ const GeekLayout = () => {
         navigate(route.key)
     }
     const onConfirm = () => {
-        console.log('确认退出')
+        console.log('确认')
         dispatch(clearUserInfo())
         navigate('/login')
     }
