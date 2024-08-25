@@ -1,4 +1,4 @@
-import { BarChart } from './BarChart'
+import { BarChart } from './components/BarChart'
 
 const Home = () => {
     return (

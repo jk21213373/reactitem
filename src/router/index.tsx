@@ -1,7 +1,6 @@
 import Layout from "../pages/Layout";
 import Login from "../pages/Login";
 import { createBrowserRouter } from "react-router-dom";
-import AuthRoute from '../components/AuthRoute'
 import Publish from '../pages/Publish'
 import Article from '../pages/Article'
 import Home from '../pages/Home'

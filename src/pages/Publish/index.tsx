@@ -12,24 +12,22 @@ import {
 import { PlusOutlined } from '@ant-design/icons'
 import { message } from 'antd'
 import { Link } from 'react-router-dom'
-import { useState, useEffect, } from "react"
+import { useState } from "react"
 import './index.scss'
 import ReactQuill from 'react-quill'
 import 'react-quill/dist/quill.snow.css'
-import { getChannelAPI, createArticleAPI } from '../../apis/article'
+import { createArticleAPI } from '../../apis/article'
+import { useChannel } from "../../hooks/useChannel"
+interface Channel {
+    id: string | number;
+    name: string;
+}
+
 const { Option } = Select
 
 const Publish = () => {
-    const [channelList, setChannelList] = useState([])
-    useEffect(() => {
-        //1.封装函数在函数体内调用接口
-        const getChannelList = async () => {
-            const res = await getChannelAPI()
-            setChannelList(res.data)
-        }
-        //2.调用函数
-        getChannelList()
-    }, [])
+    //获取频道列表
+    const { channelList } = useChannel() as { channelList?: Channel[] }
     const onFinish = (formValue: any) => {
         //校验封面类型imageType是否和实际的图片列表imageList数量是相等的
         if (imageList.length !== imageType) return message.warning('封面类型和图片数量不匹配')
@@ -86,7 +84,7 @@ const Publish = () => {
                         rules={[{ required: true, message: '请选择文章频道' }]}
                     >
                         <Select placeholder="请选择文章频道" style={{ width: 200 }}>
-                            {channelList.map((item: any) => (
+                            {channelList?.map((item: any) => (
                                 <Option key={item.id} value={item.id}>
                                     {item.name}
                                 </Option>
